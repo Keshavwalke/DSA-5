@@ -1,6 +1,5 @@
 package dynamicProgramming;
 //		Given sum A, number of ways you can get that sum with dice roll[1-6].
-
 //		As the number of ways can be large return its modulo by 1e9 + 7.
 
 public class DiceThrow {
