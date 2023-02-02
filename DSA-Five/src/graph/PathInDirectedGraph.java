@@ -37,8 +37,11 @@ public class PathInDirectedGraph {
 		Arrays.fill(vis, Boolean.FALSE); // Initialized
 		
 		int level[]=new int[A+1];
-		Arrays.fill(level, -1);
+		Arrays.fill(level, -1);				//Level array for calculating min path length
 		level[1]=0;
+		
+		int parent[]=new int[A+1];
+		Arrays.fill(parent, -1);
 		
 		Queue<Integer> q = new LinkedList<>(); // created q for storing nodes just like level order
 		q.add(1); // adding initial element
@@ -50,11 +53,22 @@ public class PathInDirectedGraph {
 				if (vis[y] == false) { // checking this node already visited or not
 					q.add(y); // if not then adding in queue and marking as visited
 					vis[y] = true;
-					level[y]=level[x]+1;
+					level[y]=level[x]+1;	// Storing level of element
+					parent[y]=x;		//storing the parent of element
 				}
 			}
 		}
-		System.out.println(level[A]);
+		System.out.println(level[A]);		//It'll tell directly what is level of destination from source
+		
+		ArrayList<Integer> path=new ArrayList<>();
+		int p=A;
+		while(p!=-1) {
+			path.add(p);					//adding parent elements in the list
+			p=parent[p];
+		}
+		
+		System.out.println(path);			//Printing the path list
+		
 		if (vis[A] == true)
 			return 1; // If visited of A is marked true then path possible
 		return 0;
