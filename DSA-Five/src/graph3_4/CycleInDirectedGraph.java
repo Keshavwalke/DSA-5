@@ -61,7 +61,6 @@ public class CycleInDirectedGraph {
 				}
 			}
 		}
-
 		if (ind == A)
 			return 0;
 		return 1;
