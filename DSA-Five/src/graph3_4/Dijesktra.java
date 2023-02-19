@@ -30,7 +30,7 @@ public class Dijesktra {
 		int E = B.length; // Edges
 		int N = A; // Nodes here nodes numbering is 0 to N-1
 
-		ArrayList<Pair> arr[] = new ArrayList[N]; // created adjlist,intialized
+		ArrayList<Pair> arr[] = new ArrayList[N]; // created adjlist,initialized
 		for (int i = 0; i < N; i++) {
 			arr[i] = new ArrayList<Pair>();
 		}
@@ -42,7 +42,7 @@ public class Dijesktra {
 			arr[startEdge].add(new Pair(endEdge, weight));
 			arr[endEdge].add(new Pair(startEdge, weight));
 		}
-		int time[] = new int[N]; // Created time array, intialized with inifinity
+		int time[] = new int[N]; // Created time array, initialized with infinity
 		Arrays.fill(time, Integer.MAX_VALUE);
 		time[C] = 0; // filled time of source equal to zero
 
@@ -63,7 +63,7 @@ public class Dijesktra {
 					int w = ele2.second;
 					if (time[v] > (time[u] + w)) { // if time from u to v is lesser than already time, updated time
 						time[v] = time[u] + w;
-						q.add(new Pair(time[v], v)); // Pudhed time, endEdge
+						q.add(new Pair(time[v], v)); // Pushed time, endEdge
 					}
 				}
 			}
@@ -80,7 +80,7 @@ public class Dijesktra {
 		int first;
 		int second;
 
-		Pair(int first, int second) { // created class pair and intialized constructor
+		Pair(int first, int second) { // created class pair and initialized constructor
 			this.first = first;
 			this.second = second;
 		}
